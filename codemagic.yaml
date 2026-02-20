@@ -6,6 +6,8 @@ workflows:
       xcode: latest
       vars:
         BUNDLE_ID: "fr.olympepadel.app"
+      groups:
+        - SUPABASE
     scripts:
       - name: Install dependencies
         script: |

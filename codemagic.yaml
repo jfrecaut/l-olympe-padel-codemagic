@@ -2,32 +2,22 @@ workflows:
   ios-capacitor:
     name: iOS Capacitor Build
     max_build_duration: 60
+
     environment:
       xcode: latest
-      vars:
-        BUNDLE_ID: "fr.olympepadel.app"
       groups:
         - SUPABASE
+
     scripts:
       - name: Install dependencies
         script: |
           npm install
           npm run build
           npx cap sync ios
-      - name: Install CocoaPods
-        script: |
-          cd ios/App
-          pod install
-      - name: Build IPA
-        script: |
-          cd ios/App
-          xcodebuild -workspace App.xcworkspace \
-            -scheme App \
-            -configuration Release \
-            -archivePath build/App.xcarchive archive
-          xcodebuild -exportArchive \
-            -archivePath build/App.xcarchive \
-            -exportOptionsPlist exportOptions.plist \
-            -exportPath build
+
     artifacts:
-      - ios/App/build/**/*.ipa
+      - build/ios/ipa/*.ipa
+
+    publishing:
+      app_store_connect:
+        auth: integration

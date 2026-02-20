@@ -1,0 +1,111 @@
+{
+  "id": "/",
+  "dir": "ltr",
+  "lang": "fr",
+  "name": "L'Olympe Padel - Réservation",
+  "scope": "/",
+  "display": "standalone",
+  "start_url": "/",
+  "short_name": "Olympe Padel",
+  "theme_color": "#000000",
+  "description": "Réservez votre court de padel en ligne",
+  "orientation": "any",
+  "background_color": "#000000",
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "screenshots": [
+    {
+      "src": "https://api.olympe-padel.fr/storage/v1/object/public/media/screenshots/screenshots-1771516944144.png",
+      "type": "image/png",
+      "sizes": "535x1157",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "https://api.olympe-padel.fr/storage/v1/object/public/media/screenshots/screenshots-1771516949422.png",
+      "type": "image/png",
+      "sizes": "535x2215",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "https://api.olympe-padel.fr/storage/v1/object/public/media/screenshots/screenshots-1771516952294.png",
+      "type": "image/png",
+      "sizes": "535x1696",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "https://api.olympe-padel.fr/storage/v1/object/public/media/screenshots/screenshots-1771516956225.png",
+      "type": "image/png",
+      "sizes": "2560x1238",
+      "form_factor": "wide"
+    },
+    {
+      "src": "https://api.olympe-padel.fr/storage/v1/object/public/media/screenshots/screenshots-1771516963766.png",
+      "type": "image/png",
+      "sizes": "2560x1238",
+      "form_factor": "wide"
+    },
+    {
+      "src": "https://api.olympe-padel.fr/storage/v1/object/public/media/screenshots/screenshots-1771516969986.png",
+      "type": "image/png",
+      "sizes": "2560x1660",
+      "form_factor": "wide"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "sports",
+    "lifestyle"
+  ],
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+}

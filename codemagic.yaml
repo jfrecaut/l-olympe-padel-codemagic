@@ -3,7 +3,7 @@ workflows:
     name: iOS Capacitor Build
 
     integrations:
-      app_store_connect: WBRQPCUBCA
+      app_store_connect: L'Olympe Padel
 
     environment:
       xcode: latest

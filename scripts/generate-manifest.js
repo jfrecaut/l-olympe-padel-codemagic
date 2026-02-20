@@ -28,8 +28,14 @@ const supabaseKey = envVars.VITE_SUPABASE_ANON_KEY;*/
 
 function loadEnv() {
   const envPath = join(__dirname, '../.env');
-  const envContent = readFileSync(envPath, 'utf-8');
   const env = {};
+
+  if (!existsSync(envPath)) {
+    console.log('.env file not found, using process.env only');
+    return env;
+  }
+
+  const envContent = readFileSync(envPath, 'utf-8');
 
   envContent.split('\n').forEach(line => {
     const match = line.match(/^([^=:#]+)=(.*)$/);

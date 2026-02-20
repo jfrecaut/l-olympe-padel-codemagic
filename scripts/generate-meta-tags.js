@@ -6,10 +6,33 @@ import { dirname, join } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-function loadEnv() {
+/*function loadEnv() {
   const envPath = join(__dirname, '../.env');
   const envContent = readFileSync(envPath, 'utf-8');
   const env = {};
+
+  envContent.split('\n').forEach(line => {
+    const match = line.match(/^([^=:#]+)=(.*)$/);
+    if (match) {
+      const key = match[1].trim();
+      const value = match[2].trim();
+      env[key] = value;
+    }
+  });
+
+  return env;
+}*/
+
+function loadEnv() {
+  const envPath = join(__dirname, '../.env');
+  const env = {};
+
+  if (!existsSync(envPath)) {
+    console.log('.env file not found, using process.env only');
+    return env;
+  }
+
+  const envContent = readFileSync(envPath, 'utf-8');
 
   envContent.split('\n').forEach(line => {
     const match = line.match(/^([^=:#]+)=(.*)$/);

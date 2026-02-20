@@ -10,8 +10,6 @@ workflows:
       groups:
         - SUPABASE
       ios_signing:
-        #        distribution_type: app_store
-        #bundle_identifier: fr.olympepadel.app
         provisioning_profiles:
           fr.olympepadel.app: olympe_padel_app_store
 

@@ -12,27 +12,9 @@ workflows:
       ios_signing:
         distribution_type: app_store
         bundle_identifier: fr.olympepadel.app
+        profile: olympe_padel_app_store
 
     scripts:
-      - name: Set up provisioning
-        script: |
-          set -e
-          set -x
-
-          # Initialiser le keychain
-          keychain initialize
-
-          # Forcer le fetch avec création
-          app-store-connect fetch-signing-files \
-            "fr.olympepadel.app" \
-            --type IOS_APP_STORE \
-            --create \
-            --verbose || true
-
-          # Vérifier ce qui a été créé
-          echo "=== Signing Files ==="
-          security find-identity -v -p codesigning
-          ls -la ~/Library/MobileDevice/Provisioning\ Profiles/
       - name: Install dependencies
         script: |
           npm install

@@ -12,8 +12,7 @@ workflows:
       ios_signing:
         distribution_type: app_store
         bundle_identifier: fr.olympepadel.app
-        provisioning_profiles:
-          - olymppe_appstore_profile
+        provisioning_profiles: olymppe_appstore_profile
 
     scripts:
       - name: Install dependencies

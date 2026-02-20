@@ -1,7 +1,9 @@
 workflows:
   ios-capacitor:
     name: iOS Capacitor Build
-    max_build_duration: 60
+
+    integrations:
+      app_store_connect: WBRQPCUBCA
 
     environment:
       xcode: latest

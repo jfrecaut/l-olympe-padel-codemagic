@@ -9,9 +9,9 @@ workflows:
       xcode: latest
       groups:
         - SUPABASE
-          #      ios_signing:
-          #        distribution_type: app_store
-          #        bundle_identifier: fr.olympepadel.app
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: fr.olympepadel.app
 
     scripts:
       - name: Install dependencies

@@ -1,28 +1,42 @@
 workflows:
   ios-capacitor:
     name: iOS Capacitor Build
-
     integrations:
       app_store_connect: L'Olympe Padel
-
     environment:
       xcode: latest
       groups:
         - SUPABASE
       ios_signing:
-        provisioning_profiles:
-          - olympe_padel_app_store
-
+        distribution_type: app_store
+        bundle_identifier: fr.olympepadel.app
     scripts:
       - name: Install dependencies
         script: |
           npm install
+      
+      - name: Build web app
+        script: |
           npm run build
+      
+      - name: Sync Capacitor iOS
+        script: |
           npx cap sync ios
-
+      
+      - name: Set up code signing
+        script: |
+          xcode-project use-profiles
+      
+      - name: Build iOS IPA
+        script: |
+          xcode-project build-ipa \
+            --workspace "ios/App/App.xcworkspace" \
+            --scheme "App"
+    
     artifacts:
       - build/ios/ipa/*.ipa
-
+      - /tmp/xcodebuild_logs/*.log
+    
     publishing:
       app_store_connect:
         auth: integration

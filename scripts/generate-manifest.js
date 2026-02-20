@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Load environment variables from .env file
-const envPath = join(__dirname, '../.env');
+/*const envPath = join(__dirname, '../.env');
 const envContent = readFileSync(envPath, 'utf-8');
 const envVars = {};
 
@@ -23,7 +23,29 @@ envContent.split('\n').forEach(line => {
 });
 
 const supabaseUrl = envVars.VITE_SUPABASE_URL;
-const supabaseKey = envVars.VITE_SUPABASE_ANON_KEY;
+const supabaseKey = envVars.VITE_SUPABASE_ANON_KEY;*/
+
+
+function loadEnv() {
+  const envPath = join(__dirname, '../.env');
+  const envContent = readFileSync(envPath, 'utf-8');
+  const env = {};
+
+  envContent.split('\n').forEach(line => {
+    const match = line.match(/^([^=:#]+)=(.*)$/);
+    if (match) {
+      const key = match[1].trim();
+      const value = match[2].trim();
+      env[key] = value;
+    }
+  });
+
+  return env;
+}
+
+const env = loadEnv();
+const supabaseUrl = process.env.VITE_SUPABASE_URL || env.VITE_SUPABASE_URL;
+const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY || env.VITE_SUPABASE_ANON_KEY;
 
 if (!supabaseUrl || !supabaseKey) {
   console.error('❌ Les variables d\'environnement Supabase sont manquantes');

@@ -7,6 +7,9 @@ workflows:
       xcode: latest
       groups:
         - SUPABASE
+      vars:
+        APP_VERSION: "1.0.0"
+        APP_BUILD_NUMBER: "2"
       ios_signing:
         distribution_type: app_store
         bundle_identifier: fr.olympepadel.app
@@ -14,7 +17,11 @@ workflows:
       - name: Install dependencies
         script: |
           npm install
-      
+     
+      - name: Generate assets (icons & splash)
+        script: |
+          npx capacitor-assets generate
+
       - name: Build web app
         script: |
           npm run build
